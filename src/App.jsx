@@ -1,8 +1,22 @@
-import { DateTime } from "luxon";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Grommet } from "grommet";
 
-const now = DateTime.now();
-const displayDate = now.toLocaleString(DateTime.DATE_FULL);
+import theme from "./theme"
 
-const App = () => <h1>{displayDate}</h1>;
+import Index from "./pages/Index";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Index />,
+    // errorElement: <ErrorPage />,
+  },
+]);
+
+const App = () => (
+  <Grommet theme={theme}>
+    <RouterProvider router={router} />
+  </Grommet>
+);
 
 export default App;
